@@ -1,0 +1,13 @@
+body{
+    margin: 0;
+    background-color: rgb(32, 32, 32);
+}
+
+#table{
+    margin: auto;
+    justify-content: center;
+    margin-top: 10%;
+    width: 50vh;
+    height: 50vh;
+    background-color: rgb(29, 8, 8);
+}
