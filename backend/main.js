@@ -20,7 +20,6 @@ class table  {
 
 const list = [];
 
-btn1.addEventListener('click',envia)
 
 function envia (){
     const vA = new table(nome.value,valor.value,quantidade.value, identificador.value)
@@ -30,14 +29,15 @@ function envia (){
 }
 
 function renderiza(){
-        tabela.innerHTML = ""
-        for(let i = 0; i < list.length; i++){
+    tabela.innerHTML = ""
+    for(let i = 0; i < list.length; i++){
         const p1 = document.createElement('li');
         p1.textContent = `Nome: ${list[i].nome} Preco: ${list[i].preco} Quantidade: ${list[i].quantidade}`
         tabela.appendChild(p1)
     }
 }
-btn2.addEventListener('click', removeList)
+
+
 function removeList(){
     if(tabela.lastElementChild){
         list.splice(-1,1)
@@ -45,6 +45,13 @@ function removeList(){
     } else{
         alert('Vazio !')
     }
+}
+
+function editaList(){
+    list.splice(list.identificador, 1)
+    const addV = new table(nome.value,valor.value,quantidade.value, identificador.value)
+    list.push(addV)
+    renderiza()
 }
 
 btn3.addEventListener('click', function(){
@@ -57,3 +64,7 @@ btn3.addEventListener('click', function(){
         console.log('errror')
     }
 })
+
+btn1.addEventListener('click',envia)
+btn2.addEventListener('click', removeList)
+btn4.addEventListener('click', editaList)
