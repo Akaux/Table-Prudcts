@@ -6,6 +6,7 @@ const btn1 = document.getElementById('btn-1')
 const tabela = document.querySelector('#oll')
 const btn2 = document.getElementById('btn-2')
 const btn3 = document.getElementById('btn-3')
+const btn4 = document.getElementById('btn-4')
 
 
 class table  {
