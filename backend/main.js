@@ -4,9 +4,9 @@ const quantidade = document.getElementById('npt-3')
 const identificador = document.getElementById('npt-4')
 const btn1 = document.getElementById('btn-1')
 const tabela = document.querySelector('#oll')
-const btn2 = document.getElementById('btn-2')
 const btn3 = document.getElementById('btn-3')
 const btn4 = document.getElementById('btn-4')
+
 
 
 class table  {
@@ -18,14 +18,16 @@ class table  {
     }
 }
 
-const list = [];
-
+const list = JSON.parse(localStorage.getItem("list")) || [];
+renderiza()
 
 function envia (){
     const vA = new table(nome.value,valor.value,quantidade.value, identificador.value)
     list.push(vA)
     console.log(list)
     renderiza()
+    let save = localStorage.setItem("list", JSON.stringify(list))
+    console.log(JSON.parse(localStorage.getItem("list")))
 }
 
 
@@ -54,17 +56,10 @@ function renderiza(){
 
         tabela.appendChild(tr)
     }
+    let save = localStorage.setItem("list", JSON.stringify(list))
 }
 
 
-function removeList(){
-    if(tabela.lastElementChild){
-        list.splice(-1,1)
-        tabela.lastElementChild.remove();
-    } else{
-        alert('Vazio !')
-    }
-}
 
 
 
@@ -83,6 +78,7 @@ function editaList(){
     } else {
         console.log('identificador invalido')
     }
+    let save = localStorage.setItem("list", JSON.stringify(list))
 }
 
 btn3.addEventListener('click', function(){
@@ -92,10 +88,11 @@ btn3.addEventListener('click', function(){
         console.log(list)
         renderiza()
     } else {
-        console.log('errror')
+        alert('Não Possui Item')
     }
+    let save = localStorage.setItem("list", JSON.stringify(list))
 })
 
 btn1.addEventListener('click',envia)
-btn2.addEventListener('click', removeList)
+
 btn4.addEventListener('click', editaList)
