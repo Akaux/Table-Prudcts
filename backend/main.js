@@ -4,8 +4,8 @@ const quantidade = document.getElementById('npt-3')
 const identificador = document.getElementById('npt-4')
 const btn1 = document.getElementById('btn-1')
 const tabela = document.querySelector('#oll')
+const btn2 = document.getElementById('btn-2')
 const btn3 = document.getElementById('btn-3')
-const btn4 = document.getElementById('btn-4')
 
 
 
@@ -80,8 +80,7 @@ function editaList(){
     }
     let save = localStorage.setItem("list", JSON.stringify(list))
 }
-
-btn3.addEventListener('click', function(){
+function apagar(){
     if(list.some(list => list.identificador == identificador.value)){
         console.log('este elemento pode ser excluido')
         list.splice(identificador)
@@ -91,8 +90,9 @@ btn3.addEventListener('click', function(){
         alert('Não Possui Item')
     }
     let save = localStorage.setItem("list", JSON.stringify(list))
-})
+}
+
 
 btn1.addEventListener('click',envia)
-
-btn4.addEventListener('click', editaList)
+btn2.addEventListener('click',apagar)
+btn3.addEventListener('click', editaList)
