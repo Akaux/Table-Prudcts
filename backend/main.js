@@ -47,11 +47,23 @@ function removeList(){
     }
 }
 
+
+
+
 function editaList(){
-    list.splice(list.identificador, 1)
-    const addV = new table(nome.value,valor.value,quantidade.value, identificador.value)
-    list.push(addV)
+    const vAchar = list.findIndex(item => item.identificador == identificador.value)
+    if(vAchar !== -1 ){
+        const addV = new table(
+            nome.value,
+            valor.value,
+            quantidade.value,
+            identificador.value
+        )
+        list.splice(vAchar, 1, addV) //Corrigir o porque dele nao esta removendo o elemento
     renderiza()
+    } else {
+        console.log('identificador invalido')
+    }
 }
 
 btn3.addEventListener('click', function(){
