@@ -28,12 +28,31 @@ function envia (){
     renderiza()
 }
 
+
+
 function renderiza(){
     tabela.innerHTML = ""
     for(let i = 0; i < list.length; i++){
-        const p1 = document.createElement('li');
-        p1.textContent = `Nome: ${list[i].nome} Preco: ${list[i].preco} Quantidade: ${list[i].quantidade}`
+    
+    const tr = document.createElement('tr')
+
+    const p1 = document.createElement('td');
+
+    const p2 = document.createElement('td');
+
+    const p3 = document.createElement('td');
+
+    const p4 = document.createElement('td');
+        p1.textContent = `${list[i].nome}`
+        p2.textContent = `${list[i].preco}`
+        p3.textContent = `${list[i].quantidade}`
+        p4.textContent = `${list[i].identificador}`
         tabela.appendChild(p1)
+        tabela.appendChild(p2)
+        tabela.appendChild(p3)
+        tabela.appendChild(p4)
+
+        tabela.appendChild(tr)
     }
 }
 
