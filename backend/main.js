@@ -46,7 +46,7 @@ function renderiza(){
 
     const p4 = document.createElement('td');
         p1.textContent = `${list[i].nome}`
-        p2.textContent = `${list[i].preco}`
+        p2.textContent = `$${list[i].preco}`
         p3.textContent = `${list[i].quantidade}`
         p4.textContent = `${list[i].identificador}`
         tabela.appendChild(p1)
