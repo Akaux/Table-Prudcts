@@ -28,6 +28,7 @@ body{
     height: 20px;
 }
 #table{
+    overflow-x: auto;
     margin: auto;
     justify-content: center;
     margin-top: 5px;
