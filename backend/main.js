@@ -81,9 +81,9 @@ function editaList(){
     let save = localStorage.setItem("list", JSON.stringify(list))
 }
 function apagar(){
-    if(list.some(list => list.identificador == identificador.value)){
+    if(list.find(list => list.identificador == identificador.value)){
         console.log('este elemento pode ser excluido')
-        list.splice(identificador)
+        list.splice(identificador,1)
         console.log(list)
         renderiza()
     } else {
